@@ -6,10 +6,15 @@ name = "fs-ia6b-nucleo"
 version = "0.1.0"
 
 [dependencies]
-cortex-m = "0.6.0"
-cortex-m-rt = "0.6.10"
-cortex-m-semihosting = "0.3.3"
-panic-halt = "0.2.0"
+embedded-hal = "1.0.0"
+nb = "1"
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+panic-halt = "0.2"
+
+[dependencies.stm32f4xx-hal]
+version = "0.21.0"
+features = ["stm32f407"]
 
 # Uncomment for the panic example.
 # panic-itm = "0.4.1"
