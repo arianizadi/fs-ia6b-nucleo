@@ -4,7 +4,7 @@
   <h1 align="center">FS-IA6B + Nucleo Reciever</h3>
 
   <p align="center">
-    Use a STM32F446 Nucleo to reciver transmission data from a FS-IA6B.
+    Use a STM32F446 Nucleo to recieve transmission data from a FS-IA6B.
     </br>
   </p>
 </div>
