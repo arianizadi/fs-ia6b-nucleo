@@ -9,26 +9,27 @@ use panic_halt as _; // you can put a breakpoint on `rust_begin_unwind` to catch
                      // use panic_semihosting as _; // logs messages to the host stderr; requires a debugger
 
 use cortex_m_rt::entry;
-use embedded_hal::digital::InputPin;
-use embedded_hal::digital::OutputPin;
 use stm32f4xx_hal::pac::Peripherals;
 use stm32f4xx_hal::prelude::*;
+use core::fmt::Write;
 
 #[entry]
 fn main() -> ! {
     if let Some(peripherals) = Peripherals::take() {
-        let gpioa = peripherals.GPIOA.split(); 
+        let gpioa = peripherals.GPIOA.split();
+        let gpioc = peripherals.GPIOC.split();
 
         let mut led = gpioa.pa5.into_push_pull_output();
-
-        let gpioc = peripherals.GPIOC.split();
         let button = gpioc.pc13;
+        let mut led2 = gpioa.pa8.into_push_pull_output();
 
         loop {
             if button.is_high() {
                 led.set_low();
+                led2.set_low();
             } else {
                 led.set_high();
+                led2.set_high();
             }
         }
     }
